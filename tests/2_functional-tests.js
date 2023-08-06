@@ -30,8 +30,8 @@ suite("Functional Tests", function () {
         assert.equal(res.body.created_by, issueObject.created_by);
         assert.equal(res.body.assigned_to, issueObject.assigned_to);
         assert.equal(res.body.status_text, issueObject.status_text);
-        assert(isISODate(res.body.created_on));
-        assert(isISODate(res.body.updated_on));
+        assert.isTrue(isISODate(res.body.created_on));
+        assert.isTrue(isISODate(res.body.updated_on));
 
         done();
       });
@@ -56,8 +56,8 @@ suite("Functional Tests", function () {
         assert.equal(res.body.created_by, issueObject.created_by);
         assert.equal(res.body.assigned_to, "");
         assert.equal(res.body.status_text, "");
-        assert(isISODate(res.body.created_on));
-        assert(isISODate(res.body.updated_on));
+        assert.isTrue(isISODate(res.body.created_on));
+        assert.isTrue(isISODate(res.body.updated_on));
 
         done();
       });
@@ -86,7 +86,7 @@ suite("Functional Tests", function () {
         assert.equal(res.status, 200);
         assert.isArray(res.body);
         assert.isNotEmpty(res.body);
-        assert(
+        assert.isTrue(
           res.body.every(function (element) {
             return (
               element._id &&
@@ -116,7 +116,7 @@ suite("Functional Tests", function () {
         assert.equal(res.status, 200);
         assert.isArray(res.body);
         assert.isNotEmpty(res.body);
-        assert(
+        assert.isTrue(
           res.body.every(function (element) {
             return (
               element._id &&
@@ -146,7 +146,7 @@ suite("Functional Tests", function () {
         assert.equal(res.status, 200);
         assert.isArray(res.body);
         assert.isNotEmpty(res.body);
-        assert(
+        assert.isTrue(
           res.body.every(function (element) {
             return (
               element._id &&
